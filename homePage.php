@@ -164,7 +164,7 @@
             <div class="footer-item">
                 <img src="assets/images/SetUpSprint.svg" alt="logo" />
                 <p>Elevate your PC setup with precision.<br> Discover top-tier components tailored<br> to your needs.Build your dream<br> rig with SetupSprint.</p>
-                <div class="socials"><a href="https://github.com/AhmedTrb/E-commerce-web-project"><img src="assets/images/Social.svg" alt="socials"/></a></div>
+                <div class="socials"><a href="https://github.com/DangerWolf473/SetUpSprint.git"><img src="assets/images/Social.svg" alt="socials"/></a></div>
             </div>
             <div class="footer-item">
                 <p class="title">Company</p>
@@ -196,7 +196,7 @@
         </div>
         <hr style="width: 90%;">
         <div class="flex-items">
-            <p class="copyrights" >Shop.co © 2000-2023, All Rights Reserved</p>
+            <p class="copyrights" >Shop.co © 2024-2025, All Rights Reserved</p>
             <div class="flex">
                 <img src="assets/images/visa.svg" alt="visa"/>
             </div> 
