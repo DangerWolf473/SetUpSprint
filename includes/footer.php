@@ -4,7 +4,7 @@
         <div class="footer-item">
             <img src="../assets/images/SetUpSprint.svg" alt="logo" />
             <p>Elevate your PC setup with precision.<br> Discover top-tier components tailored<br> to your needs.Build your dream<br> rig with SetupSprint.</p>
-            <div class="socials"><a href="https://github.com/DangerWolf473/Animated-Portfolio.git"><img src="../assets/images/Social.svg" alt="socials"/></a></div>
+            <div class="socials"><a href="https://github.com/DangerWolf473/SetUpSprint.git"><img src="../assets/images/Social.svg" alt="socials"/></a></div>
         </div>
         <div class="footer-item">
             <p class="title">Company</p>
