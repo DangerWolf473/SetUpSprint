@@ -62,26 +62,26 @@ CREATE TABLE orders (
 
 -- Inserting data into the orders table
 INSERT INTO orders (ClientID, OrderDate, TotalAmount, OrderStatus) VALUES
-(1, '2024-01-01 10:00:00', 100.50, 'Completed'),
-(2, '2024-01-02 11:00:00', 200.75, 'Pending'),
-(3, '2024-01-03 12:00:00', 150.25, 'Shipped'),
-(4, '2024-01-04 13:00:00', 175.00, 'Cancelled'),
-(5, '2024-01-05 14:00:00', 80.99, 'Completed'),
-(6, '2024-01-06 15:00:00', 120.49, 'Pending'),
-(7, '2024-01-07 16:00:00', 300.00, 'Shipped'),
-(8, '2024-01-08 17:00:00', 220.99, 'Cancelled'),
-(9, '2024-01-09 18:00:00', 99.99, 'Completed'),
-(10, '2024-01-10 19:00:00', 450.75, 'Pending'),
-(11, '2024-01-11 20:00:00', 320.89, 'Shipped'),
-(12, '2024-01-12 21:00:00', 210.55, 'Cancelled'),
-(13, '2024-01-13 22:00:00', 180.45, 'Completed'),
-(14, '2024-01-14 23:00:00', 500.00, 'Pending'),
-(15, '2024-01-15 09:00:00', 400.00, 'Shipped'),
-(16, '2024-01-16 08:00:00', 250.00, 'Cancelled'),
-(17, '2024-01-17 07:00:00', 190.75, 'Completed'),
-(18, '2024-01-18 06:00:00', 270.50, 'Pending'),
-(19, '2024-01-19 05:00:00', 360.00, 'Shipped'),
-(20, '2024-01-20 04:00:00', 130.25, 'Cancelled');
+(1, '2024-01-01 10:00:00', 10000.50, 'Completed'),
+(2, '2024-01-02 11:00:00', 20000.75, 'Pending'),
+(3, '2024-01-03 12:00:00', 15000.25, 'Shipped'),
+(4, '2024-01-04 13:00:00', 17500.00, 'Cancelled'),
+(5, '2024-01-05 14:00:00', 8000.99, 'Completed'),
+(6, '2024-01-06 15:00:00', 12000.49, 'Pending'),
+(7, '2024-01-07 16:00:00', 30000.00, 'Shipped'),
+(8, '2024-01-08 17:00:00', 22000.99, 'Cancelled'),
+(9, '2024-01-09 18:00:00', 9900.99, 'Completed'),
+(10, '2024-01-10 19:00:00', 45000.75, 'Pending'),
+(11, '2024-01-11 20:00:00', 32000.89, 'Shipped'),
+(12, '2024-01-12 21:00:00', 21000.55, 'Cancelled'),
+(13, '2024-01-13 22:00:00', 18000.45, 'Completed'),
+(14, '2024-01-14 23:00:00', 50000.00, 'Pending'),
+(15, '2024-01-15 09:00:00', 40000.00, 'Shipped'),
+(16, '2024-01-16 08:00:00', 25000.00, 'Cancelled'),
+(17, '2024-01-17 07:00:00', 19000.75, 'Completed'),
+(18, '2024-01-18 06:00:00', 27000.50, 'Pending'),
+(19, '2024-01-19 05:00:00', 36000.00, 'Shipped'),
+(20, '2024-01-20 04:00:00', 13000.25, 'Cancelled');
 
 -- Creating the product table
 
@@ -93,8 +93,6 @@ CREATE TABLE product (
   SupplierID varchar(100),
   OldPrice decimal(10,2) NOT NULL,
   SpecialPrice decimal(10,2),
-  OldPricePKR decimal(10,2) NOT NULL,
-  SpecialPricePKR decimal(10,2),
   QuantityInStock int(11),
   DateAdded date,
   LastUpdated timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
@@ -107,29 +105,28 @@ CREATE TABLE product (
 );
 
 -- Inserting data into the product table
-INSERT INTO product (ProductName, Description, Category, SupplierID, OldPrice, SpecialPrice, OldPricePKR, SpecialPricePKR, QuantityInStock, DateAdded, Discount, ImageURL, Rating, Status, Brand) VALUES
-('Intel Core i9-11900K', '8 Cores, 16 Threads, 3.5 GHz, 5.3 GHz Turbo', 'CPU', 'Supplier 1', 550.00, 520.00, 149500.00, 141000.00, 50, '2023-01-01', 5.45, 'cpu1.jpg', 4.8, 'Available', 'Intel'),
-('AMD Ryzen 9 5900X', '12 Cores, 24 Threads, 3.7 GHz, 4.8 GHz Turbo', 'CPU', 'Supplier 2', 580.00, 550.00, 157800.00, 149500.00, 30, '2023-01-02', 5.17, 'cpu2.jpg', 4.7, 'Available', 'AMD'),
-('NVIDIA RTX 3090', '24GB GDDR6X, PCIe 4.0', 'GPU', 'Supplier 3', 2000.00, 1800.00, 544000.00, 489600.00, 20, '2023-01-03', 10.00, 'gpu1.jpg', 4.9, 'Available', 'NVIDIA'),
-('AMD Radeon RX 6900 XT', '16GB GDDR6, PCIe 4.0', 'GPU', 'Supplier 4', 1500.00, 1400.00, 408000.00, 381000.00, 25, '2023-01-04', 6.67, 'gpu2.jpg', 4.6, 'Available', 'AMD'),
-('Corsair Vengeance LPX 16GB', 'DDR4, 3200MHz', 'RAM', 'Supplier 5', 80.00, 70.00, 21760.00, 19040.00, 100, '2023-01-05', 12.50, 'ram1.jpg', 4.5, 'Available', 'Corsair'),
-('G.SKILL Trident Z RGB 32GB', 'DDR4, 3600MHz', 'RAM', 'Supplier 6', 160.00, 140.00, 43520.00, 38100.00, 60, '2023-01-06', 12.50, 'ram2.jpg', 4.8, 'Available', 'G.SKILL'),
-('ASUS ROG Strix Z590-E', 'ATX, LGA 1200', 'Mother Board', 'Supplier 7', 300.00, 270.00, 81600.00, 73440.00, 40, '2023-01-07', 10.00, 'mb1.jpg', 4.7, 'Available', 'ASUS'),
-('MSI MPG B550 Gaming Edge WiFi', 'ATX, AM4', 'Mother Board', 'Supplier 8', 180.00, 160.00, 48960.00, 43520.00, 50, '2023-01-08', 11.11, 'mb2.jpg', 4.6, 'Available', 'MSI'),
-('NZXT H510', 'Mid Tower, Tempered Glass', 'PC case', 'Supplier 9', 70.00, 60.00, 19040.00, 16320.00, 80, '2023-01-09', 14.29, 'case1.jpg', 4.4, 'Available', 'NZXT'),
-('Corsair 4000D Airflow', 'Mid Tower, High Airflow', 'PC case', 'Supplier 10', 80.00, 70.00, 21760.00, 19040.00, 60, '2023-01-10', 12.50, 'case2.jpg', 4.6, 'Available', 'Corsair'),
-('Samsung 970 EVO Plus 1TB', 'NVMe M.2 SSD', 'Memory', 'Supplier 11', 180.00, 160.00, 48960.00, 43520.00, 100, '2023-01-11', 11.11, 'ssd1.jpg', 4.8, 'Available', 'Samsung'),
-('WD Blue 1TB', 'SATA III HDD', 'Memory', 'Supplier 12', 50.00, 45.00, 13600.00, 12240.00, 150, '2023-01-12', 10.00, 'hdd1.jpg', 4.3, 'Available', 'Western Digital'),
-('Logitech G502', 'High Performance Gaming Mouse', 'Mouse', 'Supplier 13', 50.00, 45.00, 13600.00, 12240.00, 70, '2023-01-13', 10.00, 'mouse1.jpg', 4.7, 'Available', 'Logitech'),
-('Razer DeathAdder V2', 'Ergonomic Gaming Mouse', 'Mouse', 'Supplier 14', 70.00, 60.00, 19040.00, 16320.00, 50, '2023-01-14', 14.29, 'mouse2.jpg', 4.6, 'Available', 'Razer'),
-('Corsair K95 RGB Platinum', 'Mechanical Gaming Keyboard', 'Keyboard', 'Supplier 15', 200.00, 180.00, 54400.00, 48960.00, 40, '2023-01-15', 10.00, 'keyboard1.jpg', 4.8, 'Available', 'Corsair'),
-('SteelSeries Apex Pro', 'Mechanical Gaming Keyboard', 'Keyboard', 'Supplier 16', 220.00, 200.00, 59840.00, 54400.00, 30, '2023-01-16', 9.09, 'keyboard2.jpg', 4.9, 'Available', 'SteelSeries'),
-('HyperX Cloud II', '7.1 Surround Sound', 'Headset', 'Supplier 17', 100.00, 90.00, 27200.00, 24480.00, 50, '2023-01-17', 10.00, 'headset1.jpg', 4.7, 'Available', 'HyperX'),
-('Razer BlackShark V2', 'Esports Gaming Headset', 'Headset', 'Supplier 18', 120.00, 110.00, 32640.00, 29920.00, 40, '2023-01-18', 8.33, 'headset2.jpg', 4.6, 'Available', 'Razer'),
-('SteelSeries QcK', 'Large Gaming Mousepad', 'Mousepad', 'Supplier 19', 20.00, 18.00, 5440.00, 4896.00, 70, '2023-01-19', 10.00, 'mousepad1.jpg', 4.5, 'Available', 'SteelSeries'),
-('Corsair MM300', 'Anti-Fray Cloth Gaming Mousepad', 'Mousepad', 'Supplier 20', 25.00, 22.00, 6800.00, 5984.00, 60, '2023-01-20', 12.00, 'mousepad2.jpg', 4.4, 'Available', 'Corsair'),
-('ASUS TUF Gaming VG27AQ', '27" WQHD, 165Hz, IPS', 'Monitors', 'Supplier 21', 400.00, 350.00, 108800.00, 95200.00, 30, '2023-01-21', 12.50, 'monitor1.jpg', 4.7, 'Available', 'ASUS'),
-('LG UltraGear 27GN950', '27" 4K, 144Hz, Nano IPS', 'Monitors', 'Supplier 22', 800.00, 750.00, 217600.00, 204000.00, 20, '2023-01-22', 6.25);
+INSERT INTO product (ProductName, Description, Category, SupplierID, OldPrice, SpecialPrice, QuantityInStock, DateAdded, Discount, ImageURL, Rating, Status, Brand) VALUES
+('Intel Core i9-11900K', '8 Cores, 16 Threads, 3.5 GHz, 5.3 GHz Turbo', 'CPU', 'Supplier 1', 149500.00, 141000.00, 50, '2023-01-01', 5.45, 'cpu1.jpg', 4.8, 'Available', 'Intel'),
+('AMD Ryzen 9 5900X', '12 Cores, 24 Threads, 3.7 GHz, 4.8 GHz Turbo', 'CPU', 'Supplier 2', 157800.00, 149500.00, 30, '2023-01-02', 5.17, 'cpu2.jpg', 4.7, 'Available', 'AMD'),
+('NVIDIA RTX 3090', '24GB GDDR6X, PCIe 4.0', 'GPU', 'Supplier 3', 544000.00, 489600.00, 20, '2023-01-03', 10.00, 'gpu1.jpg', 4.9, 'Available', 'NVIDIA'),
+('AMD Radeon RX 6900 XT', '16GB GDDR6, PCIe 4.0', 'GPU', 'Supplier 4', 408000.00, 381000.00, 25, '2023-01-04', 6.67, 'gpu2.jpg', 4.6, 'Available', 'AMD'),
+('Corsair Vengeance LPX 16GB', 'DDR4, 3200MHz', 'RAM', 'Supplier 5', 21760.00, 19040.00, 100, '2023-01-05', 12.50, 'ram1.jpg', 4.5, 'Available', 'Corsair'),
+('G.SKILL Trident Z RGB 32GB', 'DDR4, 3600MHz', 'RAM', 'Supplier 6', 43520.00, 38100.00, 60, '2023-01-06', 12.50, 'ram2.jpg', 4.8, 'Available', 'G.SKILL'),
+('ASUS ROG Strix Z590-E', 'ATX, LGA 1200', 'Mother Board', 'Supplier 7', 81600.00, 73440.00, 40, '2023-01-07', 10.00, 'mb1.jpg', 4.7, 'Available', 'ASUS'),
+('MSI MPG B550 Gaming Edge WiFi', 'ATX, AM4', 'Mother Board', 'Supplier 8', 48960.00, 43520.00, 50, '2023-01-08', 11.11, 'mb2.jpg', 4.6, 'Available', 'MSI'),
+('NZXT H510', 'Mid Tower, Tempered Glass', 'PC case', 'Supplier 9', 19040.00, 16320.00, 80, '2023-01-09', 14.29, 'case1.jpg', 4.4, 'Available', 'NZXT'),
+('Corsair 4000D Airflow', 'Mid Tower, High Airflow', 'PC case', 'Supplier 10', 21760.00, 19040.00, 60, '2023-01-10', 12.50, 'case2.jpg', 4.6, 'Available', 'Corsair'),
+('Samsung 970 EVO Plus 1TB', 'NVMe M.2 SSD', 'Memory', 'Supplier 11', 48960.00, 43520.00, 100, '2023-01-11', 11.11, 'ssd1.jpg', 4.8, 'Available', 'Samsung'),
+('WD Blue 1TB', 'SATA III HDD', 'Memory', 'Supplier 12', 13600.00, 12240.00, 150, '2023-01-12', 10.00, 'hdd1.jpg', 4.3, 'Available', 'Western Digital'),
+('Logitech G502', 'High Performance Gaming Mouse', 'Mouse', 'Supplier 13', 13600.00, 12240.00, 70, '2023-01-13', 10.00, 'mouse1.jpg', 4.7, 'Available', 'Logitech'),
+('Razer DeathAdder V2', 'Ergonomic Gaming Mouse', 'Mouse', 'Supplier 14', 19040.00, 16320.00, 50, '2023-01-14', 14.29, 'mouse2.jpg', 4.6, 'Available', 'Razer'),
+('Corsair K95 RGB Platinum', 'Mechanical Gaming Keyboard', 'Keyboard', 'Supplier 15', 54400.00, 48960.00, 40, '2023-01-15', 10.00, 'keyboard1.jpg', 4.8, 'Available', 'Corsair'),
+('SteelSeries Apex Pro', 'Mechanical Gaming Keyboard', 'Keyboard', 'Supplier 16', 59840.00, 54400.00, 30, '2023-01-16', 9.09, 'keyboard2.jpg', 4.9, 'Available', 'SteelSeries'),
+('HyperX Cloud II', '7.1 Surround Sound', 'Headset', 'Supplier 17', 27200.00, 24480.00, 50, '2023-01-17', 10.00, 'headset1.jpg', 4.7, 'Available', 'HyperX'),
+('Razer BlackShark V2', 'Esports Gaming Headset', 'Headset', 'Supplier 18', 32640.00, 29920.00, 40, '2023-01-18', 8.33, 'headset2.jpg', 4.6, 'Available', 'Razer'),
+('SteelSeries QcK', 'Large Gaming Mousepad', 'Mousepad', 'Supplier 19', 5440.00, 4896.00, 70, '2023-01-19', 10.00, 'mousepad1.jpg', 4.5, 'Available', 'SteelSeries'),
+('Corsair MM300', 'Anti-Fray Cloth Gaming Mousepad', 'Mousepad', 'Supplier 20', 6800.00, 5984.00, 60, '2023-01-20', 12.00, 'mousepad2.jpg', 4.4, 'Available', 'Corsair'),
+('ASUS TUF Gaming VG27AQ', '27" WQHD, 165Hz, IPS', 'Monitors', 'Supplier 21', 108800.00, 95200.00, 30, '2023-01-21', 12.50, 'monitor1.jpg', 4.7, 'Available', 'ASUS');
 
 CREATE TABLE orderdetail (
   OrderDetailID int(11) NOT NULL AUTO_INCREMENT,
@@ -175,5 +172,13 @@ CREATE TABLE brand_logos (
 );
 
 INSERT INTO brand_logos (BrandName, LogoURL) VALUES
-('Intel', 'intel_logo.jpeg'),
-('AMD', 'amd_logo.png');
+('Intel', 'intel.svg'),
+('AMD', 'amd_logo.png'),
+('JBL', 'jbl.svg'),
+('LENOVO', 'lenovo.svg'),
+('LOGITECH', 'logitech.svg'),
+('MSI', 'msi.svg'),
+('NVIDIA', 'nvidia.svg'),
+('CORSAIR', 'corsair.png'),
+('ASUS', 'asus.png'),
+('SAMSUNG', 'samsung.svg');
