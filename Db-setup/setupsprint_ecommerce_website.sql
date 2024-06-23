@@ -177,7 +177,7 @@ INSERT INTO brand_logos (BrandName, LogoURL) VALUES
 ('JBL', 'jbl.svg'),
 ('LENOVO', 'lenovo.svg'),
 ('LOGITECH', 'logitech.svg'),
-('MSI', 'msi.svg'),
+('MSI', 'msi.png'),
 ('NVIDIA', 'nvidia.svg'),
 ('CORSAIR', 'corsair.png'),
 ('ASUS', 'asus.png'),
