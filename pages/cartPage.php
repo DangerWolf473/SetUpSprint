@@ -27,20 +27,20 @@
                     <hr>
                     <div class="sum">
                         <h5>Subtotal</h5>
-                        <h4><?php echo $before_discount ?> DT</h4>
+                        <h4><?php echo $before_discount ?> PKR</h4>
                     </div>
                     <div class="sum">
                         <h5>-<?php echo($per>100)?0:$per?>%</h5>
-                        <div class="discount-price">-<?php echo $discounted ?> DT</div>
+                        <div class="discount-price">-<?php echo $discounted ?> PKR</div>
                     </div>
                     <div class="sum">
                         <h5>Delivery Fee</h5>
-                        <h4 >7DT</h4>
+                        <h4 >2000PKR</h4>
                     </div>
                     <hr>
                     <div class="sum">
                         <h5>Total</h5>
-                        <h4><?php echo $subtotal ?>DT</h4>
+                        <h4><?php echo $subtotal ?>PKR</h4>
                     </div>
                     <a href="<?php echo (isset($_SESSION['userFname']) && !empty($_SESSION['cart']) )? 'checkoutPage.php' : 'signinPage.php'; ?>">
                     <button class="filter-btn">Go to Chekout</button>
