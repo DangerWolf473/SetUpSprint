@@ -1,18 +1,22 @@
 <?php
 session_start();
-                        
-include "../includes/database.php";
+
+// Include the db_connect.php file
+require_once '../includes/database.php';
+
+// Establish a database connection
+$conn = new PDO('mysql:host=localhost;dbname=setupsprint_ecommerce_website', 'root', '');
 
 $products_in_cart = isset($_SESSION['cart']) ? $_SESSION['cart'] : array();
 $products = array();
 $subtotal = 7.00;
-$discounted =0.00 ;
+$discounted = 0.00;
 $before_discount = 0.00;
-$per=0;
-if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])){
-    $array_to_question_marks = implode(',', array_fill(0, count($products_in_cart), '?')); // (?,?,?,? ...) for the sql query
-    $stmt = $connect->prepare('SELECT * FROM product WHERE ProductID IN (' . $array_to_question_marks . ')');
+$per = 0;
 
+if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])){
+    $array_to_question_marks = implode(',', array_fill(0, count($products_in_cart), '?'));
+    $stmt = $conn->prepare('SELECT * FROM product WHERE ProductID IN (' . $array_to_question_marks . ')');
     $stmt->execute(array_keys($products_in_cart));
 
     $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -29,7 +33,7 @@ if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])){
         <!-- displaying product items in cart -->
         <div class="cart-item">
         <div class="left-cart-item">
-            <div><img src="<?php echo $product['ImageURL'] ?>" width="100dvw" height="100dvh"></div>
+            <div><img src="../assets/images/<?php echo $product['ProductName'] ?>.jpg" alt="product" class="prd-img" width="50dvw" height="50dvh"></div>
             <div class="cart-item-info">
                 <h2><?php echo $product['ProductName']?></h2>
                 <h2><?php echo ($product['SpecialPrice']!=0)?$product['SpecialPrice']:  $product['OldPrice']?> DT</h2>
@@ -58,4 +62,3 @@ $per = ($discounted / $before_discount)*100 ;
 $_SESSION['per'] = $per;
 $_SESSION['total'] = $subtotal ;
 } else echo "<h1>Cart Empty</h1>" ?>
-
