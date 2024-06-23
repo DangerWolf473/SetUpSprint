@@ -27,6 +27,6 @@
             <!-- order detail: total money -->
                 <tr class="line">
                     <td>Total : </td>
-                    <td><?php echo $order['TotalAmount']?> DT</td>
+                    <td><?php echo $order['TotalAmount']?> PKR</td>
                 </tr>
     <?php } ?>
