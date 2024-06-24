@@ -50,7 +50,7 @@
                         <h4>Name :</h4>
                         <h4>Email :</h4>
                         <h4>Phone Number :</h4>
-                        <h4>Default Adress :</h4>
+                        <h4>Default Address :</h4>
                     </div>
                     <div class="info-details">
                         <?php
