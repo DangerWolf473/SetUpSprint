@@ -37,7 +37,7 @@ if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
                 <div><img src="../assets/images/<?php echo $product['ProductName'] ?>.jpg" alt="product" class="prd-img" width="50dvw" height="50dvh"></div>
                 <div class="cart-item-info">
                     <h2><?php echo $product['ProductName']?></h2>
-                    <h2><?php echo ($product['SpecialPrice'] != 0) ? $product['SpecialPrice'] : $product['OldPrice'] ?> DT</h2>
+                    <h2><?php echo ($product['SpecialPrice'] != 0) ? $product['SpecialPrice'] : $product['OldPrice'] ?> PKR</h2>
                 </div>
             </div>
             <div class="right-cart-item">
