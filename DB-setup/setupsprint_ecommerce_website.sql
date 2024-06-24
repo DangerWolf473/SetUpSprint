@@ -10,7 +10,7 @@ CREATE TABLE admin (
 
 -- Inserting data into the admin table
 INSERT INTO admin (Username, Password) VALUES
-('admin@test.com', 'admin');
+('admin@gmail.com', 'admin');
 
 -- Creating the clients table
 CREATE TABLE clients (
