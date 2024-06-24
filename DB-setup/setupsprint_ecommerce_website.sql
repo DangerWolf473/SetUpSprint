@@ -18,7 +18,7 @@ CREATE TABLE clients (
   FirstName varchar(255) NOT NULL,
   LastName varchar(255) NOT NULL,
   Email varchar(255) NOT NULL,
-  PasswordHash varchar(255) NOT NULL,
+  Password varchar(255) NOT NULL,
   Address varchar(255),
   PhoneNumber varchar(20),
   PRIMARY KEY (ClientID),
@@ -26,7 +26,7 @@ CREATE TABLE clients (
 );
 
 -- Inserting data into the clients table
-INSERT INTO clients (FirstName, LastName, Email, PasswordHash, Address, PhoneNumber) VALUES
+INSERT INTO clients (FirstName, LastName, Email, Password, Address, PhoneNumber) VALUES
 ('John', 'Doe', 'john.doe@example.com', 'hash1', '123 Main St', '1234567890'),
 ('Jane', 'Smith', 'jane.smith@example.com', 'hash2', '456 Elm St', '2345678901'),
 ('Alice', 'Johnson', 'alice.johnson@example.com', 'hash3', '789 Oak St', '3456789012'),
