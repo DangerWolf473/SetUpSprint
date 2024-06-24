@@ -1,17 +1,15 @@
 <?php
-// Configuration
-$db_host = 'localhost';
-$db_username = 'root';
-$db_password = '';
-$db_name = 'setupsprint_ecommerce_website';
+// Include database connection
+include_once '../admin/db_connect.php';
 
-// Create connection
-$conn = new mysqli($db_host, $db_username, $db_password, $db_name);
 
 // Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+// if ($conn->connect_error) {
+//     die("Connection failed: " . $conn->connect_error);
+// }
+
+// Start the session at the beginning
+session_start();
 
 // Registration
 if (isset($_POST["firstname"]) && isset($_POST["lastname"]) && isset($_POST["phone"]) && isset($_POST["email"]) && isset($_POST["password"]) && isset($_POST["confirmpassword"]) && $_POST["password"] == $_POST["confirmpassword"]) {
@@ -37,39 +35,9 @@ if (isset($_POST["firstname"]) && isset($_POST["lastname"]) && isset($_POST["pho
         $stmt->bind_param("ssssss", $firstname, $lastname, $email, $password, $address, $phonenumber);
         $stmt->execute();
         $stmt->close(); // Close the previous statement
-        header("Location: ../pages/signinPage.php");
+        header("Location: ../config/login.php");
         exit(); // Add exit() to prevent further execution
     }
 }
 
-// Login
-if (isset($_POST["email"]) && isset($_POST["password"])) {
-    $email = $_POST["email"];
-    $input_password = $_POST["password"];
 
-    $stmt = $conn->prepare("SELECT * FROM Clients WHERE Email = ?");
-    $stmt->bind_param("s", $email);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    $user = $result->fetch_assoc();
-
-    $stmt->close(); // Close the previous statement
-
-    if ($user) {
-        if ($input_password == $user['Password']) { // Verify the password
-            // Login successful, redirect to dashboard
-            session_start();
-            $_SESSION["email"] = $email;
-            header("Location: ../pages/profilePage.php");
-            exit(); // Add exit() to prevent further execution
-        } else {
-            echo "<script>alert('Invalid password')</script>";
-        }
-    } else {
-        echo "<script>alert('User not found')</script>";
-    }
-}
-
-// Close connection
-$conn->close();
-?>

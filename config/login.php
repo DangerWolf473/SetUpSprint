@@ -17,14 +17,14 @@ if (!isset($_SESSION["userFname"])) {
         }
 
 
-        $query = 'SELECT * FROM clients WHERE Email= ? AND PasswordHash=?' ;
+        $query = 'SELECT * FROM clients WHERE Email= ? AND Password=?' ;
     
         $statement = $connect->prepare($query) ;
-        // if (!password_verify($password,$password)){
-        //     echo "<script>alert('incorrect password')</script>" ;
-        //     header('location:signinPage.php');
-        //     exit();
-        // }
+        if (!password_verify($password,$password)){
+             echo "<script>alert('incorrect password')</script>" ;
+            header('location: ../pages/signinPage.php');
+            exit();
+        }
         $statement->execute([$email,$password]);
     
 
@@ -34,7 +34,7 @@ if (!isset($_SESSION["userFname"])) {
             $user = $statement->fetch(PDO::FETCH_ASSOC);
             $_SESSION["userFname"] = $user['FirstName'] ;
             $_SESSION["userLname"] = $user['LastName'] ;
-            $_SESSION["eimail"] = $user['Email'] ;
+            $_SESSION["email"] = $user['Email'] ;
             $_SESSION["phone"] = $user['PhoneNumber'] ;
             $_SESSION["address"] = $user['Address'] ;
             $_SESSION["ClientID"] = $user['ClientID'] ;
