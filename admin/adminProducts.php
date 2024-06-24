@@ -299,8 +299,8 @@ $products = getAllProducts($conn, $searchTerm);
             <label for="Discount">Discount:</label>
             <input type="number" id="Discount" name="Discount" step="0.01">
 
-            <label for="ImageURL">Image URL:</label>
-            <input type="url" id="ImageURL" name="ImageURL" required>
+            <label for="Image">Image:</label>
+            <input type="file" id="Image" name="Image/*" required>
 
             <label for="Rating">Rating:</label>
             <input type="number" id="Rating" name="Rating" step="0.1">
