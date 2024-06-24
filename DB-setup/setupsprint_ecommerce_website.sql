@@ -27,26 +27,26 @@ CREATE TABLE clients (
 
 -- Inserting data into the clients table
 INSERT INTO clients (FirstName, LastName, Email, Password, Address, PhoneNumber) VALUES
-('John', 'Doe', 'john.doe@example.com', 'hash1', '123 Main St', '1234567890'),
-('Jane', 'Smith', 'jane.smith@example.com', 'hash2', '456 Elm St', '2345678901'),
-('Alice', 'Johnson', 'alice.johnson@example.com', 'hash3', '789 Oak St', '3456789012'),
-('Bob', 'Brown', 'bob.brown@example.com', 'hash4', '101 Pine St', '4567890123'),
-('Carol', 'Davis', 'carol.davis@example.com', 'hash5', '202 Maple St', '5678901234'),
-('David', 'Wilson', 'david.wilson@example.com', 'hash6', '303 Birch St', '6789012345'),
-('Eva', 'Moore', 'eva.moore@example.com', 'hash7', '404 Cedar St', '7890123456'),
-('Frank', 'Taylor', 'frank.taylor@example.com', 'hash8', '505 Ash St', '8901234567'),
-('Grace', 'Anderson', 'grace.anderson@example.com', 'hash9', '606 Cherry St', '9012345678'),
-('Henry', 'Thomas', 'henry.thomas@example.com', 'hash10', '707 Walnut St', '0123456789'),
-('Ivy', 'Martin', 'ivy.martin@example.com', 'hash11', '808 Beech St', '1234567800'),
-('Jack', 'Jackson', 'jack.jackson@example.com', 'hash12', '909 Hickory St', '2345678900'),
-('Karen', 'White', 'karen.white@example.com', 'hash13', '1010 Fir St', '3456789001'),
-('Leo', 'Harris', 'leo.harris@example.com', 'hash14', '1111 Spruce St', '4567890012'),
-('Mia', 'Lewis', 'mia.lewis@example.com', 'hash15', '1212 Poplar St', '5678900123'),
-('Noah', 'Walker', 'noah.walker@example.com', 'hash16', '1313 Hemlock St', '6789011234'),
-('Olivia', 'Hall', 'olivia.hall@example.com', 'hash17', '1414 Dogwood St', '7890122345'),
-('Paul', 'Young', 'paul.young@example.com', 'hash18', '1515 Willow St', '8901233456'),
-('Quinn', 'King', 'quinn.king@example.com', 'hash19', '1616 Alder St', '9012344567'),
-('Rose', 'Scott', 'rose.scott@example.com', 'hash20', '1717 Redwood St', '0123455678');
+('John', 'Doe', 'john.doe@gamil.com', 'hash1', '123 Main St', '1234567890'),
+('Jane', 'Smith', 'jane.smith@gmail.com', 'hash2', '456 Elm St', '2345678901'),
+('Alice', 'Johnson', 'alice.johnson@gmail.com', 'hash3', '789 Oak St', '3456789012'),
+('Bob', 'Brown', 'bob.brown@gmail.com', 'hash4', '101 Pine St', '4567890123'),
+('Carol', 'Davis', 'carol.davis@gmail.com', 'hash5', '202 Maple St', '5678901234'),
+('David', 'Wilson', 'david.wilson@gmail.com', 'hash6', '303 Birch St', '6789012345'),
+('Eva', 'Moore', 'eva.moore@gmail.com', 'hash7', '404 Cedar St', '7890123456'),
+('Frank', 'Taylor', 'frank.taylor@gmail.com', 'hash8', '505 Ash St', '8901234567'),
+('Grace', 'Anderson', 'grace.anderson@gmail.com', 'hash9', '606 Cherry St', '9012345678'),
+('Henry', 'Thomas', 'henry.thomas@gmail.com', 'hash10', '707 Walnut St', '0123456789'),
+('Ivy', 'Martin', 'ivy.martin@gmail.com', 'hash11', '808 Beech St', '1234567800'),
+('Jack', 'Jackson', 'jack.jackson@gmail.com', 'hash12', '909 Hickory St', '2345678900'),
+('Karen', 'White', 'karen.white@gmail.com', 'hash13', '1010 Fir St', '3456789001'),
+('Leo', 'Harris', 'leo.harris@gmail.com', 'hash14', '1111 Spruce St', '4567890012'),
+('Mia', 'Lewis', 'mia.lewis@gmail.com', 'hash15', '1212 Poplar St', '5678900123'),
+('Noah', 'Walker', 'noah.walker@gmail.com', 'hash16', '1313 Hemlock St', '6789011234'),
+('Olivia', 'Hall', 'olivia.hall@gmail.com', 'hash17', '1414 Dogwood St', '7890122345'),
+('Paul', 'Young', 'paul.young@gmail.com', 'hash18', '1515 Willow St', '8901233456'),
+('Quinn', 'King', 'quinn.king@gmail.com', 'hash19', '1616 Alder St', '9012344567'),
+('Rose', 'Scott', 'rose.scott@gmail.com', 'hash20', '1717 Redwood St', '0123455678');
 
 -- Creating the orders table
 CREATE TABLE orders (
