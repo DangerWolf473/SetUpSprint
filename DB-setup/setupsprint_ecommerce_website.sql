@@ -3,13 +3,13 @@
 CREATE TABLE admin (
   AdminID int(11) NOT NULL AUTO_INCREMENT,
   Username varchar(50) NOT NULL,
-  PasswordHash varchar(255) NOT NULL,
+  Password varchar(255) NOT NULL,
   PRIMARY KEY (AdminID),
   UNIQUE KEY Username (Username)
 );
 
 -- Inserting data into the admin table
-INSERT INTO admin (Username, PasswordHash) VALUES
+INSERT INTO admin (Username, Password) VALUES
 ('admin@test.com', 'admin');
 
 -- Creating the clients table
