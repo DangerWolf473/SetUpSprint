@@ -24,7 +24,7 @@
             </nav>
         </div>
         <div class="icons">
-            <div class="icon"><a href="config/login.php"><img src="assets/images/profile.svg" height="25px"/></a></div>
+            <div class="icon"><a href="pages/signinPage.php"><img src="assets/images/profile.svg" height="25px"/></a></div>
             <div class="icon"><a href="pages/cartPage.php"><img src="assets/images/cart.svg" height="25px"/></a></div>
         </div>
     </header>
