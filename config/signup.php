@@ -2,12 +2,6 @@
 // Include database connection
 include_once '../admin/db_connect.php';
 
-
-// Check connection
-// if ($conn->connect_error) {
-//     die("Connection failed: " . $conn->connect_error);
-// }
-
 // Start the session at the beginning
 session_start();
 
@@ -19,25 +13,25 @@ if (isset($_POST["firstname"]) && isset($_POST["lastname"]) && isset($_POST["pho
     $email = $_POST["email"];
     $password = $_POST["password"]; // Store the original password
 
+    // Check if user already exists
     $stmt = $conn->prepare("SELECT * FROM Clients WHERE Email = ?");
     $stmt->bind_param("s", $email);
     $stmt->execute();
     $result = $stmt->get_result();
     $user = $result->fetch_assoc();
-
-    $stmt->close(); // Close the previous statement
+    $stmt->close(); // Close the statement
 
     if ($user) {
         echo "<script>alert('User already exists in database')</script>";
     } else {
+        // Insert new user
         $stmt = $conn->prepare("INSERT INTO Clients (FirstName, LastName, Email, Password, Address, PhoneNumber) VALUES (?, ?, ?, ?, ?, ?)");
         $address = "Avenue Habib Bourgiba 8050 Hammamet";
         $stmt->bind_param("ssssss", $firstname, $lastname, $email, $password, $address, $phonenumber);
         $stmt->execute();
-        $stmt->close(); // Close the previous statement
-        header("Location: ../config/login.php");
-        exit(); // Add exit() to prevent further execution
+        $stmt->close(); // Close the statement
+        header("Location: ../pages/signinPage.php");
+        exit(); // Exit to prevent further execution
     }
 }
-
-
+?>

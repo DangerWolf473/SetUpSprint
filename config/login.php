@@ -1,53 +1,41 @@
-<?php 
-include '../includes/database.php' ;
+<?php
 session_start();
 
-
+// Check if user is not already logged in
 if (!isset($_SESSION["userFname"])) {
-    header('Location:../pages/signinPage.php'); 
-    if (isset($_POST['email']) && isset($_POST['password'])){
-    
+    include '../includes/database.php'; // Include database connection
 
+    if (isset($_POST['email']) && isset($_POST['password'])) {
         $email = $_POST['email'];
         $password = $_POST['password'];
-        
-        if ($email == "admin@test.com") {
-            header('Location:../admin/adminDashboard.php');
+
+        // Query to fetch user by email and password
+        $query = 'SELECT * FROM clients WHERE Email = ? AND Password = ?';
+        $statement = $connect->prepare($query);
+        $statement->execute([$email, $password]);
+
+        // Check if user exists
+        $user = $statement->fetch(PDO::FETCH_ASSOC);
+        if ($user) {
+            // Set session variables
+            $_SESSION["userFname"] = $user['FirstName'];
+            $_SESSION["userLname"] = $user['LastName'];
+            $_SESSION["email"] = $user['Email'];
+            $_SESSION["phone"] = $user['PhoneNumber'];
+            $_SESSION["address"] = $user['Address'];
+            $_SESSION["ClientID"] = $user['ClientID'];
+            header('Location:../pages/profilePage.php');
             exit();
-        }
-
-
-        $query = 'SELECT * FROM clients WHERE Email= ? AND Password=?' ;
-    
-        $statement = $connect->prepare($query) ;
-        if (!password_verify($password,$password)){
-             echo "<script>alert('incorrect password')</script>" ;
+        } else {
+            // Incorrect email or password
+            echo "<script>alert('Incorrect email or password')</script>";
             header('location: ../pages/signinPage.php');
             exit();
         }
-        $statement->execute([$email,$password]);
-    
-
-        $count = $statement->rowCount();
-    
-        if ($count > 0 ) {
-            $user = $statement->fetch(PDO::FETCH_ASSOC);
-            $_SESSION["userFname"] = $user['FirstName'] ;
-            $_SESSION["userLname"] = $user['LastName'] ;
-            $_SESSION["email"] = $user['Email'] ;
-            $_SESSION["phone"] = $user['PhoneNumber'] ;
-            $_SESSION["address"] = $user['Address'] ;
-            $_SESSION["ClientID"] = $user['ClientID'] ;
-            header('Location:../pages/profilePage.php'); 
-            exit();
-            
-        } else {
-            header('location:../pages/signinPage.php');
-            exit();
-        }
-    } 
+    }
 } else {
-    header('location:../pages/profilePage.php'); 
+    // Redirect if user is already logged in
+    header('location:../pages/profilePage.php');
     exit();
 }
-
+?>
