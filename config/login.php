@@ -9,6 +9,12 @@ if (!isset($_SESSION["userFname"])) {
         $email = $_POST['email'];
         $password = $_POST['password'];
 
+        // admin login credentials
+        if ($email == "admin@gmail.com") {
+            header('Location:../admin/adminDashboard.php');
+            exit();
+        }
+
         // Query to fetch user by email and password
         $query = 'SELECT * FROM clients WHERE Email = ? AND Password = ?';
         $statement = $connect->prepare($query);
