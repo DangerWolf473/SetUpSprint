@@ -19,7 +19,7 @@
                 <td class="pr-i"><img src="../assets/images/<?php echo $product['ProductName']?>.jpg" alt="<?php echo $product['ProductName']?>" class="prd-img" style="width: 50px; height: 50px;"></td>
                     <td><?php echo $product['ProductName']?></td>
                     <td><?php echo $product['Quantity']?></td>
-                    <td><?php echo $product['Subtotal']?> DT</td>
+                    <td><?php echo $product['Subtotal']?> PKR</td>
                     <td><?php echo $order['OrderDate']?></td>
                     <td><?php echo $order['OrderStatus']?></td>
                 </tr>
